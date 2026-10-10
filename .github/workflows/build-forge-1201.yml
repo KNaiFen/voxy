@@ -87,5 +87,5 @@ jobs:
             --repo "$GITHUB_REPOSITORY" \
             --target "$(git rev-parse HEAD)" \
             --title "Voxy Forge 1.20.1 简体中文 Windows/Linux x64 (${BUILD_SHA:0:12})" \
-            --notes "从 KNaiFen/voxy@${BUILD_SHA} 构建，已同步上游 m3t4f1v3/voxy@${UPSTREAM_SHA}。支持 Minecraft 1.20.1 Forge、Windows/Linux x86-64。游戏语言选择简体中文后，Voxy 设置名称、说明、选项状态及导入提示会显示中文。安装不带 -dev 后缀的 JAR；-dev.jar 仅用于编译附属 Mod。本构建尚未进行实际游戏与 Noxy 兼容性复测。" \
+            --notes "从 KNaiFen/voxy@${BUILD_SHA} 构建，已同步上游 m3t4f1v3/voxy@${UPSTREAM_SHA}。支持 Minecraft 1.20.1 Forge、Windows/Linux x86-64。游戏语言选择简体中文后，Voxy 设置名称、说明、选项状态及导入提示会显示中文。安装不带 -dev 后缀的 JAR；-dev.jar 仅用于编译附属 Mod。本构建尚未进行实际游戏与 Voxy Distant 兼容性复测。" \
             --prerelease
