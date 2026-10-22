@@ -55,7 +55,27 @@ repositories {
         url = uri("https://artifex.soh.gg/maven/m3t4f1v3/bp-voxy-packages/")
     }
 
-    if (prop("useRubyOnly").toBoolean()) {
+    exclusiveContent {
+        forRepository {
+            ivy {
+                name = "github"
+                url = uri("https://github.com/")
+
+                patternLayout {
+                    artifact("/[organisation]/[module]/releases/download/[revision]/[module]-[revision]-[classifier].[ext]")
+                }
+
+                metadataSources {
+                    artifact()
+                }
+            }
+        }
+
+        filter {
+                includeModuleByRegex("[^\\.]+", "nvidium")
+        }
+    }
+    if (providers.gradleProperty("useRubyOnly").orNull.toBoolean().not()) {
         exclusiveContent {
             forRepository {
                 maven {
@@ -91,27 +111,6 @@ repositories {
         maven {
             name = "CaffeineMC"
             url = uri("https://maven.caffeinemc.net/releases") // or /snapshots
-        }
-
-        exclusiveContent {
-            forRepository {
-                ivy {
-                    name = "github"
-                    url = uri("https://github.com/")
-
-                    patternLayout {
-                        artifact("/[organisation]/[module]/releases/download/[revision]/[module]-[revision]-[classifier].[ext]")
-                    }
-
-                    metadataSources {
-                        artifact()
-                    }
-                }
-            }
-
-            filter {
-                includeModuleByRegex("[^\\.]+", "nvidium")
-            }
         }
         maven {
             name = "Sinytra"
